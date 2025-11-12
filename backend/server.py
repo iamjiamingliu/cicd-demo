@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, jsonify, request, Response
 from flask_cors import CORS
 
@@ -59,7 +61,7 @@ def delete_test(killed: str):
     return "Couldn't find anything"
 
 if __name__ == "__main__":
-    # Change port if necessary (i.e., 8080 is occupied)
-    app.run(host="localhost", port=8080)
-
+    # Render injects PORT; default to 8080 locally
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host="0.0.0.0", port=port)
 

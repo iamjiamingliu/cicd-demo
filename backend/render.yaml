@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: cicd-demo-backend
+    name: cicd-demo-backend-prod
     runtime: python
     plan: free
     region: oregon

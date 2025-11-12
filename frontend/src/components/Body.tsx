@@ -30,10 +30,9 @@ export default function Body() {
         requestOptions.body = message;
       }
 
-      const res = await fetch(
-        `http://localhost:${port}${route}`,
-        requestOptions,
-      );
+      const baseUrl =
+        process.env.NEXT_PUBLIC_API_URL ?? `http://localhost:${port}`;
+      const res = await fetch(`${baseUrl}${route}`, requestOptions);
       const resOut = await res.text();
       setResponse(resOut);
     } catch (error) {
